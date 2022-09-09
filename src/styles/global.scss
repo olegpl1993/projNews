@@ -1,3 +1,6 @@
+body {
+    background-color: black;
+}
 .wrapper {
     margin: 0 auto;
     width: 100%;
@@ -8,10 +11,10 @@
     border: 1px solid rgb(255, 0, 0);
 }
 .upperText {
-    font-size: 30px;
+    font-size: 50px;
     text-align: center;
-    padding: 5px;
-    border: 1px solid black;
+    padding: 10px;
+    color: white;
 }
 .section {
     display: flex;
@@ -37,9 +40,14 @@
     gap: 10px;
     padding: 20px;
 }
-.source {
-    border: 1px solid green;
+.sourceBTN {
+    border: 3px solid rgb(68, 106, 255);
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    background-color: black;
     text-align: center;
+    font-size: 18px;
+    padding: 5px;
 }
 .newsBox {
     border: 1px solid green;
@@ -61,14 +69,23 @@
     border: 1px solid green;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    justify-content: space-between;
+    padding: 20px;
 }
 .title {
     font-size: 30px;
+    font-family: "robotoReg";
+    color: white;
+    padding: 10px;
+}
+.description {
+    font-size: 20px;
+    color: white;
     font-family: "robotoReg";
 }
 .lastRow {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    color: white;
 }
