@@ -72,11 +72,20 @@ export function renderNews(data: Data, target: string | null): void {
 
             const author: HTMLDivElement = document.createElement('div');
             author.classList.add('author');
-            author.textContent = `${data.articles[i].author}`;
+            if (data.articles[i].author !== null){
+                author.textContent = `${data.articles[i].author}`;
+            }
             lastRow.appendChild(author);
         }
     }
 }
 
-//-----------------------------------------------------------------------------
+// делает активной кнопку ---------------------------------------------------------
+export function activeBTN(btn: HTMLDivElement): void {
+    menuBox.childNodes.forEach((node) => {
+        (node as HTMLDivElement).classList.remove('active'); // убирает активный класс со всех элементов
+    })
+    btn.classList.add('active'); // добавляет активный класс нажатой кнопке
+}
 
+//-----------------------------------------------------------------------------
