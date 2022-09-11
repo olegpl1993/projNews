@@ -1,4 +1,4 @@
-import { renderSource, menuBox, renderNews, activeBTN } from '../ts/view';
+import { renderSource, menuBox, renderNews, activeBTN, unvisible } from '../ts/view';
 
 export interface Data {
     status: string, totalResults: number, articles: Array<{
@@ -11,7 +11,7 @@ let data: Data; // обьект с новостями
 // запрос на получение массива новостей ----------------------------------------------------------------------------------
 export async function getNews(): Promise<void> {
     const apiKey = '418c2e2443aa40699febdfeb5115de86';
-    const url = `https://newsapi.org/v2/everything?q=apple&from=2022-09-08&to=2022-09-08&sortBy=popularity&apiKey=${apiKey}`;
+    const url = `https://newsapi.org/v2/everything?q=technique&sortBy=popularity&apiKey=${apiKey}`;
     const res: Response = await fetch(url); // fetch запрос
     data = await res.json(); // обьект с ответом
     const sources: string[] = []; //массив источников новостей
@@ -22,11 +22,12 @@ export async function getNews(): Promise<void> {
     renderSource(set); // отрисовка источников
 }
 
-// нажатие на кнопку -----------------------------------------------------------------------------------------------------
+// нажатие на кнопку меню -----------------------------------------------------------------------------------------------
 function onClickBTN(e: Event): void {
     if ((e.target as HTMLDivElement).classList.contains('sourceBTN')) {
         activeBTN(e.target as HTMLDivElement); // делает активной кнопку
         renderNews(data, (e.target as HTMLDivElement).textContent); // отрисовка новостей
+        unvisible(); // скрывает бурегр меню
     }
 }
 menuBox.addEventListener('click', (e: Event): void => { onClickBTN(e) });
