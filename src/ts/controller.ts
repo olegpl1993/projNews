@@ -11,7 +11,9 @@ let data: Data; // обьект с новостями
 // запрос на получение массива новостей ----------------------------------------------------------------------------------
 export async function getNews(): Promise<void> {
     const apiKey = '418c2e2443aa40699febdfeb5115de86';
-    const url = `https://nodenews.herokuapp.com/everything?q=technique&sortBy=popularity&apiKey=${apiKey}`;
+    const url = `https://nodenews.up.railway.app/everything?q=technique&sortBy=popularity&apiKey=${apiKey}`;
+    //const url = `https://newsapi.org/v2/everything?q=technique&sortBy=popularity&apiKey=${apiKey}`;
+    //const url = `https://newsapi-redirect-production.up.railway.app/everything?q=technique&sortBy=popularity&apiKey=${apiKey}`;
     const res: Response = await fetch(url); // fetch запрос
     data = await res.json(); // обьект с ответом
     const sources: string[] = []; //массив источников новостей
